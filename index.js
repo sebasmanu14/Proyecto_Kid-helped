@@ -1,50 +1,34 @@
 const express = require("express");
 const app = express();
-const port = 3000;
-const { engine } = require("express-handlebars");
+const port = 3001;
 
+// Motor de plantilla
+const hbs = require("hbs");
+hbs.registerPartials(__dirname + "/src/layouts", function (err) {});
 app.set("view engine", "hbs");
-app.engine(
-  "hbs",
-  engine({
-    layoutsDir: __dirname + "/src/layouts",
-    extname: "hbs",
-  })
-);
-
+app.set("views", __dirname + "/src/pages");
 app.use(express.static("public"));
-
-fakeApi = () => {
-  return [
-    {
-      name: "Katarina",
-      lane: "midlaner",
-    },
-    {
-      name: "Jayce",
-      lane: "toplaner",
-    },
-    {
-      name: "Heimerdinger",
-      lane: "toplaner",
-    },
-    {
-      name: "Zed",
-      lane: "midlaner",
-    },
-    {
-      name: "Azir",
-      lane: "midlaner",
-    },
-  ];
-};
-
+     
+   
+//rutas de pagina
 app.get("/", (req, res) => {
-  res.render("main", {
-    layout: "index",
-    suggestedChamps: fakeApi(),
-    listExists: true,
-  });
-});
+  res.render("core/main");
+});  
+  
+app.get("/register", (req, res) => {
+  res.render("auth/register");
+});           
+ 
+app.get("/login", (req, res) => {
+  res.render("auth/login", {
+    style: 'login.css'
+  });  
+});  
 
+app.get("**", (req, res) => {
+  res.render("common/not-found");
+});
+   
+ 
+//inicio servidor 
 app.listen(port, () => console.log(`App listening to port ${port}`));
