@@ -50,6 +50,11 @@ app.get("/videos_adultos", (req, res) => {
     style: "videos_adultos.css",
   })
 }) 
+app.get("/editor_video", (req, res) => {
+  res.render("core/editor_video", {
+    style: "editor_video.css", 
+  });
+}); 
   
 app.get("**", (req, res) => { 
   res.render("common/not-found");
