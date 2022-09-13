@@ -63,22 +63,3 @@ app.get("**", (req, res) => {
 //inicio servidor 
 app.listen(port, () => console.log(`App listening to port ${port}`));
 
-//Conexion Base de Datos
-var mysql=require('mysql'); 
- 
-var conexion=mysql.createConnection({ 
-    host:'localhost', 
-    database:'log_in', 
-    user:'root', 
-    password:'' 
-}); 
- 
-conexion.connect(function(error){ 
-    if(error){ 
-        throw error;    
-    }else{ 
-        console.log('conexion exitosa'); 
-    } 
-}); 
-
-conexion.end();
