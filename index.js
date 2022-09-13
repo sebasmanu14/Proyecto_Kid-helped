@@ -13,7 +13,6 @@ app.use(express.static("public"));
 app.get("/principal", (req, res) => {
   res.render("core/principal", {
     style: "principal.css",
-<<<<<<< HEAD
   }); 
 });          
   
@@ -28,22 +27,6 @@ app.get("/adulto", (req, res) => {
   });  
 });      
  
-=======
-  });
-});
-
-app.get("/adultos", (req, res) => {
-  res.render("core/adultos", {
-    style: "adultos.css",
-  });
-});
-app.get("/adulto", (req, res) => {
-  res.render("core/adulto", {
-    style: "adultos2.css",
-  });
-});
-
->>>>>>> 9e99fc23087d5df7e90135d102f14afc9dc1e7c3
 app.get("/informacion", (req, res) => {
   res.render("core/informacion", {
     style: "informacion.css",
@@ -60,7 +43,6 @@ app.get("/login", (req, res) => {
   res.render("auth/login", {
     style: "login.css",
   });
-<<<<<<< HEAD
 }); 
 
 app.get("/videos_adultos", (req, res) => {
@@ -74,15 +56,6 @@ app.get("**", (req, res) => {
 }); 
  
 //inicio servidor 
-=======
-});
- 
-app.get("**", (req, res) => {
-  res.render("common/not-found");
-});
- 
-//inicio servidor
->>>>>>> 9e99fc23087d5df7e90135d102f14afc9dc1e7c3
 app.listen(port, () => console.log(`App listening to port ${port}`));
 
 //Conexion Base de Datos
