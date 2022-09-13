@@ -12,11 +12,11 @@ app.use(express.static("public"));
 //rutas de pagina 
 app.get("/principal", (req, res) => {
   res.render("core/principal", {
-    style: "principal.css",
+    style: "principal.css",    
   }); 
 });          
   
-app.get("/adultos", (req, res) => {
+app.get("/adultos", (req, res) => { 
   res.render("core/adultos", {
     style: "adultos.css",
   });  
@@ -24,7 +24,7 @@ app.get("/adultos", (req, res) => {
 app.get("/adulto", (req, res) => {
   res.render("core/adulto", {
     style: "adultos2.css",  
-  });  
+  });   
 });      
  
 app.get("/informacion", (req, res) => {
@@ -36,10 +36,10 @@ app.get("/informacion", (req, res) => {
 app.get("/register", (req, res) => {
   res.render("auth/register", {
     style: "register.css",
-  });
+  }); 
 });
-
-app.get("/login", (req, res) => {
+ 
+app.get("/login", (req, res) => { 
   res.render("auth/login", {
     style: "login.css",
   });
@@ -65,7 +65,7 @@ var conexion=mysql.createConnection({
     host:'localhost', 
     database:'log_in', 
     user:'root', 
-    password:'' 
+    password:''  
 }); 
  
 conexion.connect(function(error){ 
